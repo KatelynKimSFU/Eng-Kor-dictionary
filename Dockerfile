@@ -8,7 +8,7 @@ WORKDIR /opt/services/djangoapp/src
 # install our two dependencies
 RUN pip install gunicorn django
 COPY Pipfile Pipfile.lock /opt/services/djangoapp/src/
-RUN pip install pipenv && pipenv install --system && pip install psycopg2
+RUN pip install pipenv && pipenv install --system && pip install psycopg2 && pip install django_filter
 
 
 # copy our project code
