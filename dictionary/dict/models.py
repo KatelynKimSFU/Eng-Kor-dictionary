@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class word(models.Model):
+class Word(models.Model):
     term = models.CharField(max_length=30, default=None)
     translated = models.CharField(max_length=30,default=None)
     acronym = models.CharField(max_length=20, default=None, blank=True)
