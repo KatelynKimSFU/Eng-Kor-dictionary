@@ -1,0 +1,36 @@
+#title{
+  font-family: 'Kufam', cursive;
+  position: absolute;
+  top:10%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+#word-list{
+  list-style-type: none;
+  overflow:hidden;
+  overflow-y:scroll;
+  height:100%;
+}
+
+#searchbar-form{
+  position:absolute;
+  width:30vw;
+  top:20%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+#searchbar{
+  width:80%;
+}
+
+
+#word-list{
+  position: absolute;
+  top:30%;
+  left: 50%;
+  width:50vw;
+  height:30vh;
+  transform: translate(-50%, 0%);
+}
