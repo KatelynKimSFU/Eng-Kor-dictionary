@@ -1,5 +1,4 @@
 from django.contrib import admin
-from .models import wordKorean, wordEnglish
+from .models import word
 # Register your models here.
-admin.site.register(wordKorean)
-admin.site.register(wordEnglish)
+admin.site.register(word)
