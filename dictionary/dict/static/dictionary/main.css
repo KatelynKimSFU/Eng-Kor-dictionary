@@ -1,3 +1,7 @@
+body{
+  background-color: #f2f2f2;
+}
+
 #title{
   font-family: 'Kufam', cursive;
   position: absolute;
@@ -25,12 +29,10 @@
   width:80%;
 }
 
-
-#word-list{
-  position: absolute;
-  top:30%;
+#word-list-container{
+  position: absolute; 
   left: 50%;
-  width:50vw;
-  height:30vh;
+  width:40vw;
+  height:60vh;
   transform: translate(-50%, 0%);
 }
