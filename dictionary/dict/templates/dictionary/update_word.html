@@ -1,0 +1,16 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block content %}
+<h1 id="title"> KOR-ENG Medical Dictionary</h1>
+
+
+
+<form action="" method="POST" id="add-word-form">
+  {% csrf_token%}
+  {{form}}
+  <button type="submit" class="btn btn-info">Update</button>
+</form>
+
+
+{% endblock content%}

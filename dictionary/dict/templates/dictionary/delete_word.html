@@ -1,0 +1,19 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block content %}
+<h1 id="title"> KOR-ENG Medical Dictionary</h1>
+
+<p> Are you sure you want to delete the term, "{{word.term}}" </p>
+
+<form action="{% url 'delete_word' word.id %}" method="POST">
+  {% csrf_token %}
+  <a href="{% url 'index' %}"> Cancel </a>
+  <input type="submit" name="Confirm">
+
+</form>
+
+
+
+
+{% endblock content%}

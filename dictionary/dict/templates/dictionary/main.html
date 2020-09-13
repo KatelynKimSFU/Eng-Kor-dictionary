@@ -3,22 +3,35 @@
 
 {% block content %}
     <h1 id="title"> KOR-ENG Medical Dictionary</h1>
+
     <form method="get" id="searchbar-form">
+      {% csrf_token%}
       <div class="form-group">
         <input type="text" name="searchbar" id="searchbar" placeholder="Search a word">
         <button type="submit" class="btn btn-info">Search</button>
       </div>
     </form>
-    {% if translated_word %}
 
+    {% if translated_word %}
       <div id="word-list-container">
-        <button id="add-btn" type="button" style="margin-bottom:1%;" class="btn btn-info" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="Add a word.">+</button>
+        <a id="add-btn" href="{% url 'add_word'%}" type="button" style="margin-bottom:1%;" class="btn btn-info" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="Add a word.">
+          +
+        </a>
         <div class="list-group" id="word-list">
         {% for word in translated_word %}
             {% if word.acronym != "" %}
-              <a href="#" class="list-group-item list-group-item-action"><strong>{{ word.term}}</strong>: {{word.translated}} ({{word.acronym}})<br>{{word.note}}</a>
+              <div class="word-container">
+                <a href={% url 'delete_word' word.id %} class="btn btn-danger btn-sm" role="button" style="float:right;" >x</a>
+                <a href={% url 'update_word' word.id %} class="btn btn-warning btn-sm" role="button" style="float:right;" >Edit</a>
+                <p class="list-group-item list-group-item-action" style="float:right;"><strong>{{ word.term}}</strong>: {{word.translated}} ({{word.acronym}})<br>{{word.note}}</p>
+
+              </div>
             {% else %}
-              <a href="#"class="list-group-item list-group-item-action"><strong>{{ word.term}}</strong>: {{word.translated}}<br>{{word.note}}</a>
+              <div class="word-container">
+                <a href={% url 'delete_word' word.id %} class="btn btn-danger btn-sm" role="button" style="float:right;">x</a>
+                <a href={% url 'update_word' word.id %} class="btn btn-warning btn-sm" role="button" style="float:right;">Edit</a>
+                <p class="list-group-item list-group-item-action" style="float:right;"><strong>{{ word.term}}</strong>: {{word.translated}}<br>{{word.note}}</p>
+              </div>
             {% endif %}
           {% endfor %}
         </div>
