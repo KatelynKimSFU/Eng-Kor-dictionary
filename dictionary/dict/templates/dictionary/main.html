@@ -18,20 +18,32 @@
           +
         </a>
         <div class="list-group" id="word-list">
+
         {% for word in translated_word %}
             {% if word.acronym != "" %}
-              <div class="word-container">
-                <a href={% url 'delete_word' word.id %} class="btn btn-danger btn-sm" role="button" style="float:right;" >x</a>
-                <a href={% url 'update_word' word.id %} class="btn btn-warning btn-sm" role="button" style="float:right;" >Edit</a>
-                <p class="list-group-item list-group-item-action" style="float:right;"><strong>{{ word.term}}</strong>: {{word.translated}} ({{word.acronym}})<br>{{word.note}}</p>
+            <div class="list-group-item">
+              <div class="d-flex">
+                <p class="mr-auto p-2"><strong>{{ word.term}}</strong>: {{word.translated}} ({{word.acronym}})</p>
+                <div class="buttons" class="p-2">
+                  <a href={% url 'update_word' word.id %} class="btn btn-outline-info btn-sm" role="button">Edit</a>
+                  <a href={% url 'delete_word' word.id %} class="btn btn-outline-danger btn-sm" role="button">Delete</a>
+                </div>
+                </div>
+                <p>{{word.note}} </p>
+            </div>
 
-              </div>
             {% else %}
-              <div class="word-container">
-                <a href={% url 'delete_word' word.id %} class="btn btn-danger btn-sm" role="button" style="float:right;">x</a>
-                <a href={% url 'update_word' word.id %} class="btn btn-warning btn-sm" role="button" style="float:right;">Edit</a>
-                <p class="list-group-item list-group-item-action" style="float:right;"><strong>{{ word.term}}</strong>: {{word.translated}}<br>{{word.note}}</p>
-              </div>
+             <div class="list-group-item">
+                <div class="d-flex">
+                 <p class="mr-auto p-2"><strong>{{ word.term}}</strong>: {{word.translated}}</p>
+                 <div class="buttons" class="p-2">
+                   <a href={% url 'update_word' word.id %} class="btn btn-outline-info btn-sm" role="button">Edit</a>
+                   <a href={% url 'delete_word' word.id %} class="btn btn-outline-danger btn-sm" role="button">Delete</a>
+                 </div>
+                </div>
+                <p>{{word.note}}</p>
+             </div>
+
             {% endif %}
           {% endfor %}
         </div>

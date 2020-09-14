@@ -6,9 +6,11 @@
 
 
 
-<form action="" method="POST" id="add-word-form">
+<form action="" method="POST" id="word-form" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);">
+  <table>
   {% csrf_token%}
-  {{form}}
+  {{form.as_table}}
+  </table>
   <button type="submit" class="btn btn-info">Update</button>
 </form>
 

@@ -4,12 +4,12 @@
 {% block content %}
 <h1 id="title"> KOR-ENG Medical Dictionary</h1>
 
-<p> Are you sure you want to delete the term, "{{word.term}}" </p>
+<h3 style="text-align:center; position:absolute; top:40%; left:50%; transform:translate(-50%,-50%);"> Are you sure you want to delete the term, "<strong>{{word.term}}</strong>" ?</h3>
 
-<form action="{% url 'delete_word' word.id %}" method="POST">
+<form action="{% url 'delete_word' word.id %}" method="POST" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);">
   {% csrf_token %}
-  <a href="{% url 'index' %}"> Cancel </a>
-  <input type="submit" name="Confirm">
+  <a href="{% url 'index' %}" class="btn btn-outline-info btn" role="button"> Cancel </a>
+  <button type="submit" class="btn btn-info">Delete</button>
 
 </form>
 
